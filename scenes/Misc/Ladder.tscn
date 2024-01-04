@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://01n10vs8wwxq"]
+
+[sub_resource type="CylinderMesh" id="1"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 3.5
+
+[sub_resource type="CylinderMesh" id="2"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="SphereMesh" id="3"]
+radius = 0.05
+height = 0.05
+is_hemisphere = true
+
+[sub_resource type="BoxMesh" id="4"]
+size = Vector3(1.4, 0.05, 0.2)
+
+[node name="ladder" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15968, -5.5519, -10.0452)
+
+[node name="siderail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546993, 0, 0.415913)
+mesh = SubResource("1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="siderail"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00211716, 1.76301, -0.206757)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="siderail"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00211716, -1.76515, -0.206757)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail/MeshInstance3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00211716, 1.76301, -0.500473)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail/MeshInstance2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="siderail2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584414, 0, 0.415913)
+mesh = SubResource("1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="siderail2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00211716, 1.76301, -0.206757)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail2/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="siderail2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00211716, -1.76515, -0.206757)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail2/MeshInstance3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00211716, 1.76301, -0.500473)
+mesh = SubResource("2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="siderail2/MeshInstance2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000378609, 0.245592, -0.000299931)
+mesh = SubResource("3")
+skeleton = NodePath("../../..")
+
+[node name="rungs" type="Node3D" parent="."]
+
+[node name="rung8" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.449)
+mesh = SubResource("4")
+
+[node name="rung6" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.449)
+mesh = SubResource("4")
+
+[node name="rung7" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.449)
+mesh = SubResource("4")
+
+[node name="rung" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.449)
+mesh = SubResource("4")
+
+[node name="rung2" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.449)
+mesh = SubResource("4")
+
+[node name="rung3" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0.449234)
+mesh = SubResource("4")
+
+[node name="rung4" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0.449234)
+mesh = SubResource("4")
+
+[node name="rung5" type="MeshInstance3D" parent="rungs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.402, 0.449234)
+mesh = SubResource("4")

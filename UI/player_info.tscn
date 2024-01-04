@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxiag8lkrj38v"]
+
+[ext_resource type="Script" path="res://UI/player_info.gd" id="1_k7dlp"]
+[ext_resource type="Theme" uid="uid://dphp4272qe781" path="res://bay.tres" id="1_mw1vq"]
+
+[node name="PlayerInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mw1vq")
+script = ExtResource("1_k7dlp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 422.0
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="HIVE" type="HIVE" parent="."]
+
+[connection signal="recieved_profile" from="HIVE" to="." method="_on_hive_recieved_profile"]

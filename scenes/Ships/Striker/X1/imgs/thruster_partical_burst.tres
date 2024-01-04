@@ -1,0 +1,20 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://s48hc405sl85"]
+
+[sub_resource type="Curve" id="Curve_fmp2t"]
+_data = [Vector2(0, 1), 0.0, -0.583333, 0, 0, Vector2(0.987013, 0.2), -0.511111, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0rncy"]
+curve = SubResource("Curve_fmp2t")
+
+[resource]
+lifetime_randomness = 0.17
+direction = Vector3(0, 0, 3)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+attractor_interaction_enabled = false
+scale_curve = SubResource("CurveTexture_0rncy")

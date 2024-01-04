@@ -1,0 +1,195 @@
+[gd_scene load_steps=13 format=3 uid="uid://b75a376t4jmn6"]
+
+[ext_resource type="Texture2D" uid="uid://cou6qttpvqain" path="res://Icon.svg" id="1_uwmyu"]
+[ext_resource type="Theme" uid="uid://dphp4272qe781" path="res://bay.tres" id="1_vln4m"]
+[ext_resource type="Script" path="res://UI/ui.gd" id="2_hrorm"]
+[ext_resource type="PackedScene" uid="uid://dpdqrariywxsy" path="res://UI/ship_parts.tscn" id="4_xtkvk"]
+[ext_resource type="PackedScene" uid="uid://dv3w0ai6xm7h1" path="res://UI/ship_stats.tscn" id="5_ia4dp"]
+[ext_resource type="PackedScene" uid="uid://cxc566hbxj2cf" path="res://UI/components/av_menu_button.tscn" id="6_4rmgr"]
+[ext_resource type="StyleBox" uid="uid://25d20hv3573f" path="res://UI/components/av_menu_buttom_internal.stylebox" id="6_opucj"]
+[ext_resource type="StyleBox" uid="uid://dx46vr3n40de5" path="res://UI/components/av_menu_buttom_left.stylebox" id="7_apcpo"]
+[ext_resource type="Texture2D" uid="uid://b0yn3gcaohd45" path="res://addons/Hive_Gaming_Services/icons/hive.svg" id="8_amfnn"]
+[ext_resource type="Texture2D" uid="uid://dkqh8dajtw2xo" path="res://assets/icons/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Arrow_Left_Key_Dark.png" id="8_yaxyy"]
+[ext_resource type="StyleBox" uid="uid://g10x8lwfttbd" path="res://UI/components/av_menu_buttom_right.stylebox" id="9_7puq8"]
+[ext_resource type="Texture2D" uid="uid://ci5b5aeex0lr8" path="res://assets/icons/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Arrow_Right_Key_Dark.png" id="10_ibxt1"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vln4m")
+script = ExtResource("2_hrorm")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="topbar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="topbar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 71.0
+offset_bottom = 20.0
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="topbar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_uwmyu")
+stretch_mode = 5
+
+[node name="StrikerControl" type="Control" parent="topbar/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Striker" parent="topbar/HBoxContainer/StrikerControl" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.282353, 0.278431, 0.282353, 1)
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 0
+offset_bottom = 48.0
+theme_override_styles/panel = ExtResource("7_apcpo")
+style = 0
+background_color = Color(0.282353, 0.278431, 0.282353, 1)
+foreground_color = Color(1, 1, 1, 1)
+height = 48.0
+grow = 1.297
+Text_not_Texture = true
+text = "Striker"
+
+[node name="MidfieldControl" type="Control" parent="topbar/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Midfield" parent="topbar/HBoxContainer/MidfieldControl" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.282353, 0.278431, 0.282353, 1)
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 0
+offset_bottom = 48.0
+theme_override_styles/panel = ExtResource("6_opucj")
+style = 1
+background_color = Color(0.282353, 0.278431, 0.282353, 1)
+foreground_color = Color(1, 1, 1, 1)
+height = 48.0
+grow = 1.297
+Text_not_Texture = true
+text = "MidField"
+
+[node name="DefenderControl" type="Control" parent="topbar/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Defender" parent="topbar/HBoxContainer/DefenderControl" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.283602, 0.280252, 0.281087, 1)
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 0
+offset_bottom = 48.0
+theme_override_styles/panel = ExtResource("9_7puq8")
+style = 2
+background_color = Color(0.283602, 0.280252, 0.281087, 1)
+foreground_color = Color(1, 1, 1, 1)
+height = 48.0
+grow = 1.297
+Text_not_Texture = true
+text = "Defender"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="topbar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -19.0
+offset_right = -6.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+metadata/_edit_group_ = true
+
+[node name="AVMenuButton" parent="topbar/HBoxContainer2" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.184314, 0.184314, 0.184314, 0.141176)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+background_color = Color(0.184314, 0.184314, 0.184314, 0.141176)
+texture = ExtResource("8_amfnn")
+width = 40.0
+height = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ShipParts" parent="." instance=ExtResource("4_xtkvk")]
+layout_mode = 1
+anchor_left = 0.998
+anchor_top = 0.111111
+anchor_right = 0.998264
+anchor_bottom = 0.914
+offset_left = -352.696
+offset_top = 0.0
+offset_bottom = -0.27179
+metadata/_edit_use_anchors_ = true
+
+[node name="ShipStats" parent="." instance=ExtResource("5_ia4dp")]
+layout_mode = 1
+anchor_right = 0.19
+offset_left = 16.0
+offset_top = 8.184
+offset_right = 0.11998
+
+[node name="ShipSelect" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -40.0
+offset_right = 51.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShipSelect"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Prev" parent="ShipSelect/HBoxContainer" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.290196, 0.278431, 0.286275, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7_apcpo")
+style = 0
+background_color = Color(0.290196, 0.278431, 0.286275, 1)
+foreground_color = Color(1, 1, 1, 1)
+texture = ExtResource("8_yaxyy")
+width = 64.0
+
+[node name="Label" type="Label" parent="ShipSelect/HBoxContainer"]
+layout_mode = 2
+text = "Ship"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" parent="ShipSelect/HBoxContainer" instance=ExtResource("6_4rmgr")]
+self_modulate = Color(0.288879, 0.27738, 0.286202, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+background_color = Color(0.288879, 0.27738, 0.286202, 1)
+foreground_color = Color(1, 1, 1, 1)
+texture = ExtResource("10_ibxt1")
+width = 64.0
+
+[connection signal="focused" from="topbar/HBoxContainer/StrikerControl/Striker" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="topbar/HBoxContainer/MidfieldControl/Midfield" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="topbar/HBoxContainer/DefenderControl/Defender" to="." method="_on_av_button_focused"]

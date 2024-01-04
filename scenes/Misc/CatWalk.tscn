@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://duevc8sxog14j"]
+
+[ext_resource type="PackedScene" uid="uid://dav5w4ahtxcyh" path="res://assets/models/misc/catwalk.glb" id="1"]
+
+[node name="CatWalk" type="Node3D"]
+
+[node name="catwalk" parent="." instance=ExtResource("1")]
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4514, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shadow_bias = 0.7
+omni_range = 30.0

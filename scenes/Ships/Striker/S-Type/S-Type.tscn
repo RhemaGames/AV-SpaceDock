@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://beqolhxj520hx"]
+
+[ext_resource type="Script" path="res://scenes/Ships/Striker/S-Type/ship_striker_S-Type.gd" id="1_0nnba"]
+[ext_resource type="Shader" path="res://assets/shaders/force_field.gdshader" id="3_etoes"]
+[ext_resource type="PackedScene" uid="uid://b3g805n6xctn3" path="res://scenes/Ships/Striker/S-Type/model/S-Type.blend" id="3_x0o71"]
+[ext_resource type="AudioStream" uid="uid://6glkiadgwfqy" path="res://scenes/Ships/Striker/S-Type/sfx/zapsplat_sound_design_impact_slam_hit_hard_003_32201.mp3" id="4_7g0jo"]
+[ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="5_gnwut"]
+[ext_resource type="PackedScene" uid="uid://bls1vfmtwtbe2" path="res://scenes/Ships/Striker/S-Type/components/DDI.tscn" id="6_qvomi"]
+[ext_resource type="PackedScene" uid="uid://caygfg0oh6l8t" path="res://scenes/Ships/build.tscn" id="8_dv4tr"]
+[ext_resource type="PackedScene" uid="uid://cikpufvfj6w3l" path="res://scenes/Ships/Striker/S-Type/components/UI.tscn" id="8_n8sxo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_po1ct"]
+radius = 4.46
+height = 7.931
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dixf4"]
+render_priority = 0
+shader = ExtResource("3_etoes")
+shader_parameter/color = null
+shader_parameter/fresnel_power = 1.0
+shader_parameter/edge_intensity = 2.0
+shader_parameter/fill_amount = 0.1
+shader_parameter/pulsing_strength = 0.25
+shader_parameter/pulsing_speed = 1.0
+shader_parameter/scanline_period = 0.5
+shader_parameter/scanline_width = 0.1
+shader_parameter/scanline_intensity = 0.35
+shader_parameter/pattern_scroll_speed = 0.025
+shader_parameter/pattern_uv_offset = Vector2(6, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ewqs2"]
+radius = 2.09786
+height = 4.82178
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08ja8"]
+size = Vector3(2.26666, 1, 4.52766)
+
+[node name="ship_striker_S_Type" type="Node3D"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
+script = ExtResource("1_0nnba")
+
+[node name="UI" parent="." instance=ExtResource("8_n8sxo")]
+visible = false
+z_index = 5
+
+[node name="Model" parent="." instance=ExtResource("3_x0o71")]
+
+[node name="DiscLock" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33517e-06, 1.34642, -3.4264)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74374e-08, 0, 0.271309)
+visible = false
+mesh = SubResource("SphereMesh_po1ct")
+surface_material_override/0 = SubResource("ShaderMaterial_dixf4")
+
+[node name="Engines" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36025e-08, 0, -0.13499)
+
+[node name="main" parent="Engines" instance=ExtResource("5_gnwut")]
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, -4.03876e-07, -0.195339, 2.3099)
+
+[node name="Upper_left" parent="Engines" instance=ExtResource("5_gnwut")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.265221, 0.419153, 2.27642)
+
+[node name="Upper_Right" parent="Engines" instance=ExtResource("5_gnwut")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.254804, 0.429331, 2.255)
+
+[node name="Thrusters" type="Node3D" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_7g0jo")
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="DDI" parent="." instance=ExtResource("6_qvomi")]
+
+[node name="Marker" parent="DDI" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+pixel_size = 0.02
+
+[node name="simple_col" type="StaticBody3D" parent="." groups=["Ship"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="simple_col"]
+shape = SubResource("CapsuleShape3D_ewqs2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="simple_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47429e-08, 2.01272, -0.198706)
+shape = SubResource("BoxShape3D_08ja8")
+
+[node name="demo_timer" type="Timer" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.395, 0, 0.918681, 0, 1, 0, -0.918681, 0, 0.395, 6.53258, 0.291634, 3.01568)
+
+[node name="Build" parent="." node_paths=PackedStringArray("ddi", "engines", "thrusters", "targets", "model", "damage") instance=ExtResource("8_dv4tr")]
+ddi = NodePath("../DDI")
+engines = NodePath("../Engines")
+thrusters = NodePath("../Thrusters")
+targets = NodePath("../Targets")
+model = NodePath("../Model")
+damage = NodePath("../Damage")
+
+[connection signal="timeout" from="demo_timer" to="." method="_on_demo_timer_timeout"]
+
+[editable path="DDI"]

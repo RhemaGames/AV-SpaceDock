@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c17428yr8vfh"]
+
+[ext_resource type="PackedScene" uid="uid://djcdtxj8mvgj0" path="res://assets/models/arenas/Minor_shieild_generator.blend" id="1_4r4sf"]
+[ext_resource type="Script" path="res://scenes/Misc/minor_shieild_generator.gd" id="2_s6txi"]
+[ext_resource type="Environment" uid="uid://bw3f1brhx4ff7" path="res://scenes/World/Transport/Tutorial.tres" id="3_1o6r6"]
+
+[node name="Minor_shieild_generator" instance=ExtResource("1_4r4sf")]
+script = ExtResource("2_s6txi")
+
+[node name="Camera3D" type="Camera3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 65)
+environment = ExtResource("3_1o6r6")
+current = true

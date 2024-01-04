@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5pyj1odrf0tb"
+path="res://.godot/imported/glitchedtones_Scanner 01.mp3-0a8066c3f23dbcfcb75b6c1a22e6bef6.mp3str"
+
+[deps]
+
+source_file="res://scenes/Ships/Midfield/Catamaran/sfx/glitchedtones_Scanner 01.mp3"
+dest_files=["res://.godot/imported/glitchedtones_Scanner 01.mp3-0a8066c3f23dbcfcb75b6c1a22e6bef6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

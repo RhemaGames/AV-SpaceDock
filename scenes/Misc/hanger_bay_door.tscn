@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvwrqtf7t0t3t"]
+
+[ext_resource type="PackedScene" uid="uid://bhmldshm3mjso" path="res://assets/models/misc/hanger_bay_door.glb" id="1"]
+[ext_resource type="Script" path="res://scenes/Misc/hanger_bay_door.gd" id="4"]
+
+[sub_resource type="BoxMesh" id="5"]
+flip_faces = true
+size = Vector3(13, 28, 21)
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hanger_bay_door/hanger_lift:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -10, 0), Vector3(0, 0.491807, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hanger_bay_door/left_top_door:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.26855, 0.513461, 0), Vector3(-8.58876, 0.482333, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hanger_bay_door/bottom_bottom_door:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.436129, 5.36676), Vector3(0, 0.405001, 14.8834)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hanger_bay_door/right_top_door:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.4789, 0.513461, 0), Vector3(8.53473, 0.482333, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hanger_bay_door/top_bottom_door:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.436129, -5.06311), Vector3(0, 0.405001, -15.38)]
+}
+
+[sub_resource type="Animation" id="7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hanger_bay_door/hanger_lift:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -10, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hanger_bay_door/left_top_door:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.72396, 0.578706, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hanger_bay_door/bottom_bottom_door:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.501268, 5.30722)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hanger_bay_door/right_top_door:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.01408, 0.578706, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hanger_bay_door/top_bottom_door:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.501268, -4.90834)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m82qf"]
+_data = {
+"Open": SubResource("6"),
+"RESET": SubResource("7")
+}
+
+[node name="hanger_bay_door" type="CSGMesh3D"]
+operation = 2
+mesh = SubResource("5")
+script = ExtResource("4")
+
+[node name="hanger_bay_door" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6484, 0)
+
+[node name="hanger_lift" parent="hanger_bay_door" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+
+[node name="left_top_door" parent="hanger_bay_door" index="2"]
+transform = Transform3D(2.03321, 0, 0, 0, 2.03321, 0, 0, 0, 2.03321, -2.72396, 0.578706, 0)
+
+[node name="right_top_door" parent="hanger_bay_door" index="3"]
+transform = Transform3D(2.03321, 0, 0, 0, 2.03321, 0, 0, 0, 2.03321, 3.01408, 0.578706, 0)
+
+[node name="top_bottom_door" parent="hanger_bay_door" index="4"]
+transform = Transform3D(2.03321, 0, 0, 0, 2.03321, 0, 0, 0, 2.03321, 0, 0.501268, -4.90834)
+
+[node name="bottom_bottom_door" parent="hanger_bay_door" index="5"]
+transform = Transform3D(2.03321, 0, 0, 0, 2.03321, 0, 0, 0, 2.03321, 0, 0.501268, 5.30722)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m82qf")
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0352483, 0.999379, 0, -0.999379, 0.0352483, 0, 10.7324, 0)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="hanger_bay_door"]

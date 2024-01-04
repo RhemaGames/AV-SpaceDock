@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://i6qoxjdrep41"]
+
+[ext_resource type="Script" path="res://scenes/Ships/Striker/LionHead/ship_striker_LionHead.gd" id="1_hbnd6"]
+[ext_resource type="PackedScene" uid="uid://cskar71q8viu4" path="res://scenes/Ships/Striker/LionHead/model/LionHead.blend" id="2_l7a0e"]
+[ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="4_hp84u"]
+[ext_resource type="AudioStream" uid="uid://c5lrknvcp84tj" path="res://scenes/Ships/Striker/X1/sfx/zapsplat_sound_design_impact_slam_hit_hard_003_32201.mp3" id="4_lgt1y"]
+[ext_resource type="PackedScene" uid="uid://c8j862cmfao1h" path="res://scenes/Ships/Striker/LionHead/components/DDI.tscn" id="5_xu2d3"]
+[ext_resource type="PackedScene" uid="uid://du5hqhidwdoi8" path="res://scenes/Ships/Striker/LionHead/components/UI.tscn" id="7_8bs3a"]
+[ext_resource type="PackedScene" uid="uid://caygfg0oh6l8t" path="res://scenes/Ships/build.tscn" id="7_dyfj2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_710in"]
+radius = 2.09786
+height = 4.82178
+
+[node name="ship_striker_LionHead" type="Node3D"]
+script = ExtResource("1_hbnd6")
+
+[node name="Model" parent="." instance=ExtResource("2_l7a0e")]
+
+[node name="DiscLock" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.670092, -5.12585)
+
+[node name="Engines" type="Node3D" parent="."]
+
+[node name="main" parent="Engines" instance=ExtResource("4_hp84u")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.0929279, 1.77115)
+
+[node name="Thrusters" type="Node3D" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_lgt1y")
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="DDI" parent="." instance=ExtResource("5_xu2d3")]
+
+[node name="Marker" parent="DDI" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+pixel_size = 0.02
+
+[node name="simple_col" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="simple_col"]
+shape = SubResource("CapsuleShape3D_710in")
+
+[node name="Build" parent="." instance=ExtResource("7_dyfj2")]
+
+[node name="UI" parent="." instance=ExtResource("7_8bs3a")]
+visible = false
+
+[editable path="DDI"]

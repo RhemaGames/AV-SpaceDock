@@ -1,0 +1,9 @@
+[gd_resource type="FontFile" load_steps=2 format=2]
+
+[ext_resource path="res://assets/Fonts/Cantarell-VF.otf" type="FontFile" id=1]
+
+[resource]
+size = 38
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )

@@ -1,0 +1,323 @@
+[gd_scene load_steps=24 format=3 uid="uid://cn4ns7tisb83y"]
+
+[ext_resource type="Environment" uid="uid://bpvtudrfn5134" path="res://dock_env.tres" id="1_4ytwy"]
+[ext_resource type="PackedScene" uid="uid://p2ow6r03swtd" path="res://blenderFiles/Dock.blend" id="1_c61po"]
+[ext_resource type="Script" path="res://dock.gd" id="1_get1s"]
+[ext_resource type="LightmapGIData" uid="uid://xpqbb1q2t6yt" path="res://dock.lmbake" id="2_hwb47"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bj7c235py4cgd" path="res://dock-cam.tres" id="2_sykn4"]
+[ext_resource type="PackedScene" uid="uid://i6qoxjdrep41" path="res://scenes/Ships/Striker/LionHead/LionHead.tscn" id="6_7u1ho"]
+[ext_resource type="Texture2D" uid="uid://pginurdajklc" path="res://Reference Images/Space Suits Purple.webp" id="7_e8j2l"]
+[ext_resource type="Texture2D" uid="uid://b356jmfw4bdol" path="res://Reference Images/City in the Distance.jpg" id="8_s0x4b"]
+[ext_resource type="Texture2D" uid="uid://cx11qufqhdpfu" path="res://Reference Images/f5dbb0d2442b6b9c.jpg" id="9_bgu2y"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q06um"]
+noise_type = 0
+frequency = 0.006
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7sb6m"]
+noise = SubResource("FastNoiseLite_q06um")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_brjb7"]
+dof_blur_far_enabled = true
+dof_blur_far_transition = -1.0
+dof_blur_amount = 0.08
+
+[sub_resource type="Animation" id="Animation_1e7cv"]
+resource_name = "Open"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dock/hangerDoorLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.48627, 0.0439838, 0.0665183), Vector3(-0.984, 0.044, 0.067), Vector3(-0.984, 0.044, 0.067), Vector3(2.48627, 0.0439838, 0.0665183)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dock/hangerDoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.48627, 0.0439838, 0.0665183), Vector3(7.476, 0.044, 0.067), Vector3(7.476, 0.044, 0.067), Vector3(2.48627, 0.0439838, 0.0665183)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dock/hangerDoorTop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.48627, -0.115345, 0.0665183), Vector3(2.486, -0.115, -2.898), Vector3(2.486, -0.115, -2.898), Vector3(2.48627, -0.115345, 0.0665183)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dock/hangerDoorBottom:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 1, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.48627, -0.115345, 0.0665183), Vector3(2.486, -0.115, 5.23307), Vector3(2.486, -0.115, 5.23307), Vector3(2.48627, -0.115345, 0.0665183)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ship:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.48985, -3.30683, 0), Vector3(2.48985, 1.9452, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r2jso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dock/hangerDoorLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.48627, 0.0439838, 0.0665183)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dock/hangerDoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.48627, 0.0439838, 0.0665183)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dock/hangerDoorTop:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.48627, -0.115345, 0.0665183)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dock/hangerDoorBottom:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.48627, -0.115345, 0.0665183)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ship:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.48985, -3.30683, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujvwe"]
+_data = {
+"Open": SubResource("Animation_1e7cv"),
+"RESET": SubResource("Animation_r2jso")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4jdgf"]
+size = Vector2(2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o12hv"]
+albedo_texture = ExtResource("7_e8j2l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sdk3y"]
+size = Vector2(4, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38ntr"]
+albedo_texture = ExtResource("8_s0x4b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_viaki"]
+size = Vector2(3.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5dcv"]
+albedo_texture = ExtResource("8_s0x4b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_arf2m"]
+size = Vector2(4, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vntd5"]
+albedo_texture = ExtResource("9_bgu2y")
+
+[node name="Dock" type="Node3D"]
+script = ExtResource("1_get1s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_4ytwy")
+
+[node name="Dock" parent="." instance=ExtResource("1_c61po")]
+
+[node name="hangerDoorLeft" parent="Dock" index="5"]
+transform = Transform3D(4.3154, 0, 0, 0, 4.3154, 0, 0, 0, 4.3154, 2.48627, 0.0439838, 0.0665183)
+
+[node name="hangerDoorRight" parent="Dock" index="6"]
+transform = Transform3D(4.3154, 0, 0, 0, 4.3154, 0, 0, 0, 4.3154, 2.48627, 0.0439838, 0.0665183)
+
+[node name="hangerDoorTop" parent="Dock" index="7"]
+transform = Transform3D(7.71653e-07, 0, -4.3154, 0, 4.3154, 0, 4.3154, 0, 7.71653e-07, 2.48627, -0.115345, 0.0665183)
+
+[node name="hangerDoorBottom" parent="Dock" index="8"]
+transform = Transform3D(7.71653e-07, 0, -4.3154, 0, 4.3154, 0, 4.3154, 0, 7.71653e-07, 2.48627, -0.115345, 0.0665183)
+
+[node name="Light" parent="Dock/Lights" index="0"]
+transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.055189, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 3.62323, -7.67426, -0.102318)
+light_energy = 30.0
+shadow_enabled = true
+omni_range = 17.0
+
+[node name="Light_001" parent="Dock/Lights" index="1"]
+light_energy = 1.0
+shadow_enabled = true
+omni_range = 20.0
+
+[node name="Light_002" parent="Dock/Lights" index="2"]
+transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.055189, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 7.84689, 3.61755, -8.33564)
+light_energy = 1.0
+omni_range = 4.461
+
+[node name="Light_003" parent="Dock/Lights" index="3"]
+light_energy = 1.0
+
+[node name="Light_004" parent="Dock/Lights" index="4"]
+light_energy = 1.0
+
+[node name="Light_005" parent="Dock/Lights" index="5"]
+light_energy = 1.0
+
+[node name="Light_006" parent="Dock/Lights" index="6"]
+light_energy = 1.0
+
+[node name="Light_007" parent="Dock/Lights" index="7"]
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="Spot" parent="Dock/Lights" index="8"]
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_001" parent="Dock/groundSpot" index="0"]
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_002" parent="Dock/groundSpot" index="1"]
+light_color = Color(0.905882, 0.886275, 0.721569, 1)
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_003" parent="Dock/groundSpot" index="2"]
+light_color = Color(0.937255, 0.694118, 0.886275, 1)
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_004" parent="Dock/groundSpot" index="3"]
+light_color = Color(1, 0.941176, 0.631373, 1)
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_005" parent="Dock/groundSpot" index="4"]
+light_energy = 1.0
+shadow_enabled = true
+spot_range = 20.0
+
+[node name="Spot_006" parent="Dock/groundSpot" index="5"]
+light_color = Color(0.889377, 0.743254, 1.54018e-06, 1)
+light_energy = 16.0
+light_projector = SubResource("NoiseTexture2D_7sb6m")
+shadow_enabled = true
+spot_range = 22.4019
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07162, 0)
+quality = 3
+directional = true
+interior = true
+camera_attributes = ExtResource("2_sykn4")
+light_data = ExtResource("2_hwb47")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.11101, 1.93515, 0)
+attributes = SubResource("CameraAttributesPractical_brjb7")
+current = true
+fov = 65.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ujvwe")
+}
+
+[node name="Ship" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48985, -3.30683, 0)
+
+[node name="ship_striker_LionHead" parent="Ship" instance=ExtResource("6_7u1ho")]
+
+[node name="Art" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Art"]
+transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, 9.63151, 5.67202, -9.85952)
+mesh = SubResource("PlaneMesh_4jdgf")
+surface_material_override/0 = SubResource("StandardMaterial3D_o12hv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Art"]
+transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, 9.63151, 2.37692, -7.74906)
+mesh = SubResource("PlaneMesh_sdk3y")
+surface_material_override/0 = SubResource("StandardMaterial3D_38ntr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Art"]
+transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, 9.63151, 3.91353, 10.6249)
+mesh = SubResource("PlaneMesh_viaki")
+surface_material_override/0 = SubResource("StandardMaterial3D_x5dcv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Art"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.02868, 4.67106, -12.0523)
+mesh = SubResource("PlaneMesh_arf2m")
+surface_material_override/0 = SubResource("StandardMaterial3D_vntd5")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="Dock"]

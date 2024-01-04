@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://rwkyfdene1es"]
+
+[ext_resource type="Texture2D" uid="uid://yv770jfdmoik" path="res://assets/shaders/clouds_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dbwxfamh1xmet" path="res://assets/shaders/clouds_normal.png" id="3"]
+
+[resource]
+transparency = 4
+albedo_texture = ExtResource("1")
+normal_enabled = true
+normal_scale = 2.15
+normal_texture = ExtResource("3")

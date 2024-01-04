@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpxjl2vj0gyj5"
+path="res://.godot/imported/glitchedtones_Scanner 01.mp3-af9491cca86fe6bd283dae358b705a21.mp3str"
+
+[deps]
+
+source_file="res://scenes/Ships/Defender/D-Type/sfx/glitchedtones_Scanner 01.mp3"
+dest_files=["res://.godot/imported/glitchedtones_Scanner 01.mp3-af9491cca86fe6bd283dae358b705a21.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

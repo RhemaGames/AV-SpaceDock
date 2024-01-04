@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhoo270846o85"
+path="res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-7938aef46379961d92c7677785afaca1.mp3str"
+
+[deps]
+
+source_file="res://scenes/Ships/Defender/D2/sfx/glitchedtones_Sci-Fi Alert 08.mp3"
+dest_files=["res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-7938aef46379961d92c7677785afaca1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

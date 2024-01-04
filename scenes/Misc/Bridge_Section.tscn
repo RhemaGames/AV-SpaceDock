@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi8kw6a71iall"]
+
+[ext_resource type="PackedScene" uid="uid://bu34xqsr2dgnq" path="res://assets/models/misc/bridge_section.glb" id="1"]
+
+[node name="Bridge_Section" type="Node3D"]
+
+[node name="bridge_section" parent="." instance=ExtResource("1")]

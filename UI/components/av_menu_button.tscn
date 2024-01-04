@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxc566hbxj2cf"]
+
+[ext_resource type="StyleBox" uid="uid://b8r810y6triig" path="res://UI/components/av_menu_button_single.stylebox" id="1_wx2tx"]
+[ext_resource type="Script" path="res://UI/components/av_menu_button.gd" id="2_wimcv"]
+
+[sub_resource type="Animation" id="Animation_mcud2"]
+resource_name = "Disabled"
+
+[sub_resource type="Animation" id="Animation_gvvu3"]
+resource_name = "Focused"
+length = 0.2
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_nwa8w"]
+resource_name = "Normal"
+
+[sub_resource type="Animation" id="Animation_2s1rh"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_je74w"]
+_data = {
+"Disabled": SubResource("Animation_mcud2"),
+"Focused": SubResource("Animation_gvvu3"),
+"Normal": SubResource("Animation_nwa8w"),
+"RESET": SubResource("Animation_2s1rh")
+}
+
+[node name="AVMenuButton" type="Panel"]
+self_modulate = Color(0, 0.466667, 0.627451, 1)
+custom_minimum_size = Vector2(128, 64)
+offset_right = 128.0
+offset_bottom = 64.0
+size_flags_horizontal = 2
+theme_override_styles/panel = ExtResource("1_wx2tx")
+script = ExtResource("2_wimcv")
+style = 3
+background_color = Color(0, 0.466667, 0.627451, 1)
+foreground_color = Color(0.756863, 0.0862745, 0.298039, 1)
+
+[node name="Paint" type="TextureRect" parent="."]
+self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
+custom_minimum_size = Vector2(51.2, 51.2)
+layout_mode = 1
+offset_left = 38.4
+offset_top = 6.4
+offset_right = 89.6
+offset_bottom = 57.6
+pivot_offset = Vector2(25.6, 25.6)
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_je74w")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -9.0
+offset_right = 5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

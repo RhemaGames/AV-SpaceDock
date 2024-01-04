@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5bu7gv4nbf54"]
+
+[ext_resource type="PackedScene" uid="uid://4ntikwccvta7" path="res://assets/models/misc/Computers/Display_terminal.glb" id="1"]
+
+[node name="Display_Terminal" type="Node3D"]
+
+[node name="Display_terminal" parent="." instance=ExtResource("1")]

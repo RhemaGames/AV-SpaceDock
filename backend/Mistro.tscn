@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lpuocrd6e00k"]
+
+[ext_resource type="Script" path="res://backend/Mistro.gd" id="1_jre0s"]
+
+[node name="Mistro" type="Node"]
+script = ExtResource("1_jre0s")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

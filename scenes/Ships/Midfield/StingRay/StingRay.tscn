@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dam5w8mmohd1l"]
+
+[ext_resource type="Script" path="res://scenes/Ships/Midfield/StingRay/StingRay.gd" id="1_iau10"]
+[ext_resource type="PackedScene" uid="uid://ovjd7ox83kss" path="res://scenes/Ships/Midfield/StingRay/components/UI.tscn" id="2_0iaqr"]
+[ext_resource type="PackedScene" uid="uid://y22hhmcdrkli" path="res://scenes/Ships/Midfield/StingRay/model/StingRay.blend" id="2_tx481"]
+[ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="3_3xosl"]
+[ext_resource type="PackedScene" uid="uid://bs5xjy14bj2qg" path="res://scenes/Ships/Midfield/StingRay/components/DDI.tscn" id="5_q4f6o"]
+[ext_resource type="PackedScene" uid="uid://caygfg0oh6l8t" path="res://scenes/Ships/build.tscn" id="6_xprd7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pn7sl"]
+size = Vector3(12.9069, 3.42867, 10.7616)
+
+[sub_resource type="Animation" id="Animation_hj52f"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_haxh7"]
+resource_name = "landing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivfmy"]
+_data = {
+"RESET": SubResource("Animation_hj52f"),
+"landing": SubResource("Animation_haxh7")
+}
+
+[node name="ship_midfield_StingRay" type="Node3D"]
+script = ExtResource("1_iau10")
+
+[node name="UI" parent="." instance=ExtResource("2_0iaqr")]
+visible = false
+
+[node name="Model" parent="." instance=ExtResource("2_tx481")]
+
+[node name="DiscLock" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4545, -3.6258)
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+
+[node name="simple_col" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="simple_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311697, 0.615652)
+shape = SubResource("BoxShape3D_pn7sl")
+
+[node name="Engines" type="Node3D" parent="."]
+
+[node name="main" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.669992, -0.000254437, 5.44338)
+
+[node name="main2" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.14768, -0.000254437, 5.44338)
+
+[node name="secondary1" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.188712, 0.482691, 5.23931)
+
+[node name="secondary2" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.220007, -0.497271, 5.13318)
+
+[node name="booster1" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.85273, -0.00480308, -0.0461714)
+
+[node name="booster2" parent="Engines" instance=ExtResource("3_3xosl")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -6.24586, 0.0219035, 0.0308495)
+
+[node name="Thrusters" type="Node3D" parent="."]
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ivfmy")
+}
+
+[node name="DDI" parent="." instance=ExtResource("5_q4f6o")]
+
+[node name="Build" parent="." instance=ExtResource("6_xprd7")]

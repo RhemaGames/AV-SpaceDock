@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfnwh62a6sqsf"]
+
+[ext_resource type="PackedScene" uid="uid://bbo0mbtdpeeni" path="res://scenes/Misc/Small_Doors.tscn" id="1"]
+[ext_resource type="Material" path="res://assets/models/misc/flat_gray_light.material" id="2"]
+[ext_resource type="Material" path="res://assets/models/misc/flat_gray.material" id="3"]
+[ext_resource type="PackedScene" uid="uid://c8820a1noq7xx" path="res://scenes/Misc/Computers/Control_console.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c1wwmtoootk28" path="res://assets/models/misc/Computers/Large_Screen.glb" id="5"]
+[ext_resource type="PackedScene" uid="uid://c5bu7gv4nbf54" path="res://scenes/Misc/Computers/Display_Terminal.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cbfkkvcsonbjj" path="res://assets/models/misc/view_port.glb" id="7"]
+[ext_resource type="Material" uid="uid://dc087lehj7x3m" path="res://assets/models/misc/Window_Glass.material" id="8_jomvc"]
+
+[sub_resource type="BoxMesh" id="1"]
+material = ExtResource("2")
+size = Vector3(32, 12, 10)
+
+[sub_resource type="BoxMesh" id="2"]
+size = Vector3(22, 8, 8)
+
+[sub_resource type="BoxMesh" id="3"]
+size = Vector3(22, 9, 10)
+
+[sub_resource type="BoxMesh" id="7"]
+size = Vector3(22, 9, 2)
+
+[sub_resource type="BoxMesh" id="4"]
+material = ExtResource("3")
+size = Vector3(8, 14, 8)
+
+[sub_resource type="BoxMesh" id="5"]
+size = Vector3(1.629, 3.2, 5)
+
+[sub_resource type="BoxMesh" id="6"]
+size = Vector3(0.5, 0.5, 5)
+
+[node name="Control_Room" type="CSGMesh3D"]
+operation = 2
+mesh = SubResource("1")
+
+[node name="Display_Terminal" parent="." instance=ExtResource("6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.261808, -4.55853, 3.28683)
+
+[node name="Display_Terminal2" parent="." instance=ExtResource("6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.83089, -4.55853, 3.28683)
+
+[node name="Display_Terminal3" parent="." instance=ExtResource("6")]
+transform = Transform3D(-1.4, 0, -1.50996e-07, 0, 1.4, 0, 2.11394e-07, 0, -1, -3.88537, -4.55853, 3.28683)
+
+[node name="CSGMesh2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9033, -0.552845, 0.146213)
+operation = 2
+mesh = SubResource("2")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9033, 1.26607, 0.98699)
+operation = 2
+mesh = SubResource("3")
+
+[node name="CSGMesh4" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9033, -0.657194, 5.01548)
+operation = 2
+mesh = SubResource("7")
+
+[node name="Small_Doors" parent="." instance=ExtResource("1")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.32782, -1.36739, -4.3448)
+
+[node name="Small_Doors2" parent="." instance=ExtResource("1")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -15.3881, 1.71365, -1.27401)
+
+[node name="CSGMesh3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5329, -12.9066, 0)
+mesh = SubResource("4")
+
+[node name="Small_Doors3" parent="." instance=ExtResource("1")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 11.5159, -15.2148, 3.22692)
+
+[node name="Small_Doors4" parent="." instance=ExtResource("1")]
+transform = Transform3D(-5.24537e-08, 0, -1, 0, 1, 0, 1.2, 0, -4.37114e-08, 7.85946, -0.0320692, 0.262745)
+
+[node name="Control_console" parent="." instance=ExtResource("4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.7342, -4.61126, 3.28295)
+
+[node name="Control_console2" parent="." instance=ExtResource("4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.38, -4.61126, 2.61993)
+
+[node name="stairs" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1087, -3.03521, -1.36702)
+mesh = SubResource("5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06043, 1.04682, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57511, 0.682072, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09085, 0.276847, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance4" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60805, -0.132616, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance5" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12203, -0.507097, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance6" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63923, -0.874341, 0)
+mesh = SubResource("6")
+
+[node name="MeshInstance7" type="MeshInstance3D" parent="stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14761, -1.27293, 0)
+mesh = SubResource("6")
+
+[node name="Large_Screen" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.968453, 0, 0.249197, 0, 1, 0, -0.249197, 0, 0.968453, -3.4042, 0, -3.54677)
+
+[node name="Large_Screen4" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.645918, 0, -0.385423, 0, 3, 0, 0.269796, 0, 0.92274, 5.25768, -2.91583, -3.3374)
+
+[node name="Large_Screen3" parent="." instance=ExtResource("5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1.21121, -2.01384, -3.92842)
+
+[node name="Large_Screen2" parent="." instance=ExtResource("5")]
+transform = Transform3D(0.968453, 0, 0.249197, 0, 1, 0, -0.249197, 0, 0.968453, -3.4042, -2.23229, -3.54677)
+
+[node name="view_port" parent="." instance=ExtResource("7")]
+transform = Transform3D(2.5, 0, 0, 0, 5.6, 0, 0, 0, 5, -3.43977, 0.275954, 4.8934)
+metadata/_edit_group_ = true
+
+[node name="Cube" parent="view_port" index="0"]
+surface_material_override/1 = ExtResource("8_jomvc")
+
+[editable path="view_port"]

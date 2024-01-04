@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b55yq3sdkdsu"
+path="res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-4830e09a0fdf163a103885b9052dffaf.mp3str"
+
+[deps]
+
+source_file="res://scenes/Ships/Midfield/Catamaran/sfx/glitchedtones_Sci-Fi Alert 08.mp3"
+dest_files=["res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-4830e09a0fdf163a103885b9052dffaf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

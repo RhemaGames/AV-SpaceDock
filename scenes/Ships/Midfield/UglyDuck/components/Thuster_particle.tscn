@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2mopgjkq871g"]
+
+[ext_resource type="Material" uid="uid://s48hc405sl85" path="res://scenes/Ships/Striker/X1/imgs/thruster_partical_burst.tres" id="1_h2gjx"]
+[ext_resource type="Material" uid="uid://ds2hc38vbdrj6" path="res://scenes/Ships/Striker/X1/imgs/thruster_burst.material" id="2_4day3"]
+[ext_resource type="Script" path="res://scenes/Ships/Striker/S-Type/components/Thuster_particle.gd" id="3_cep83"]
+[ext_resource type="AudioStream" uid="uid://8hwdmfdp044k" path="res://scenes/Ships/Striker/X1/sfx/zapsplat_nature_fire_flames_gas_air_blow_movement_rage_002_21076.mp3" id="4_3i6lk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_brvyq"]
+material = ExtResource("2_4day3")
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rox1y"]
+material = ExtResource("2_4day3")
+size = Vector2(0.1, 0.1)
+
+[node name="Thuster_particle" type="GPUParticles3D"]
+amount = 12
+lifetime = 0.35
+visibility_aabb = AABB(-0.760144, -0.494071, -0.603203, 1.52029, 0.988142, 1.20641)
+local_coords = true
+process_material = ExtResource("1_h2gjx")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_brvyq")
+draw_pass_2 = SubResource("PlaneMesh_rox1y")
+script = ExtResource("3_cep83")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3i6lk")
+volume_db = -17.333
+mix_target = 1
+bus = &"SFX"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

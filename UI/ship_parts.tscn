@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpdqrariywxsy"]
+
+[ext_resource type="Texture2D" uid="uid://cou6qttpvqain" path="res://Icon.svg" id="1_cbwxd"]
+[ext_resource type="Script" path="res://UI/ship_parts.gd" id="1_mrefq"]
+[ext_resource type="Texture2D" uid="uid://dooi4uwlm3cbd" path="res://UI/delapouite/rocket-thruster.svg" id="2_s1o4e"]
+[ext_resource type="PackedScene" uid="uid://cxc566hbxj2cf" path="res://UI/components/av_menu_button.tscn" id="3_drvih"]
+[ext_resource type="Texture2D" uid="uid://l5uvmee0edj6" path="res://UI/base.png" id="3_kdlux"]
+[ext_resource type="StyleBox" uid="uid://dx46vr3n40de5" path="res://UI/components/av_menu_buttom_left.stylebox" id="3_vmk0u"]
+[ext_resource type="Texture2D" uid="uid://bybj0er2tm040" path="res://UI/delapouite/paint-bucket.svg" id="4_d5l6l"]
+[ext_resource type="Texture2D" uid="uid://baqxe1f1g66hp" path="res://UI/cockpit.png" id="4_fii11"]
+[ext_resource type="StyleBox" uid="uid://25d20hv3573f" path="res://UI/components/av_menu_buttom_internal.stylebox" id="5_anton"]
+[ext_resource type="Texture2D" uid="uid://b2ye6g0cfnao1" path="res://UI/sbed/acid-tube.svg" id="7_hk7kg"]
+
+[node name="ShipParts" type="PanelContainer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.08
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -292.0
+offset_top = 0.159996
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_mrefq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="BaseControl" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Base" parent="VBoxContainer/HBoxContainer/BaseControl" instance=ExtResource("3_drvih")]
+self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_styles/panel = ExtResource("3_vmk0u")
+style = 0
+background_color = Color(0.231373, 0.231373, 0.231373, 1)
+foreground_color = Color(0, 0.964706, 0.952941, 1)
+texture = ExtResource("3_kdlux")
+width = 64.0
+height = 32.0
+grow = 2.0
+
+[node name="CockpitControl" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Cockpit" parent="VBoxContainer/HBoxContainer/CockpitControl" instance=ExtResource("3_drvih")]
+self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_styles/panel = ExtResource("5_anton")
+style = 1
+background_color = Color(0.231373, 0.231373, 0.231373, 1)
+foreground_color = Color(0.65098, 0.870588, 0.0823529, 1)
+texture = ExtResource("4_fii11")
+width = 64.0
+height = 32.0
+grow = 2.0
+
+[node name="PaintControl" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Paint" parent="VBoxContainer/HBoxContainer/PaintControl" instance=ExtResource("3_drvih")]
+self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_styles/panel = ExtResource("5_anton")
+style = 1
+background_color = Color(0.231373, 0.231373, 0.231373, 1)
+foreground_color = Color(0.929412, 0.74902, 0, 1)
+texture = ExtResource("4_d5l6l")
+width = 64.0
+height = 32.0
+grow = 2.0
+
+[node name="ThrustControl" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Thrust" parent="VBoxContainer/HBoxContainer/ThrustControl" instance=ExtResource("3_drvih")]
+self_modulate = Color(0.211765, 0.211765, 0.211765, 1)
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_styles/panel = ExtResource("5_anton")
+style = 1
+background_color = Color(0.211765, 0.211765, 0.211765, 1)
+foreground_color = Color(0.984314, 0.470588, 0, 1)
+texture = ExtResource("2_s1o4e")
+width = 64.0
+height = 32.0
+grow = 2.0
+
+[node name="TextureControl" type="Control" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Texture" parent="VBoxContainer/HBoxContainer/TextureControl" instance=ExtResource("3_drvih")]
+self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+background_color = Color(0.231373, 0.231373, 0.231373, 1)
+texture = ExtResource("7_hk7kg")
+width = 64.0
+height = 32.0
+grow = 2.0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("1_cbwxd")
+
+[connection signal="focused" from="VBoxContainer/HBoxContainer/BaseControl/Base" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="VBoxContainer/HBoxContainer/CockpitControl/Cockpit" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="VBoxContainer/HBoxContainer/PaintControl/Paint" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="VBoxContainer/HBoxContainer/ThrustControl/Thrust" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="VBoxContainer/HBoxContainer/TextureControl/Texture" to="." method="_on_av_button_focused"]

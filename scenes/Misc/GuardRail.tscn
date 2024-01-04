@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cetceb7yvpbr0"]
+
+[ext_resource type="Material" path="res://assets/models/misc/flat_gray_light.material" id="1"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(0.1, 2, 0.1)
+
+[sub_resource type="BoxMesh" id="2"]
+size = Vector3(1.5, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="3"]
+size = Vector3(0.1, 1.15, 0.1)
+
+[node name="Rail" type="MeshInstance3D"]
+mesh = SubResource("1")
+material/0 = ExtResource("1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705999, 0.0918969, 0)
+mesh = SubResource("2")
+material/0 = ExtResource("1")
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705999, -0.235687, 0)
+mesh = SubResource("2")
+material/0 = ExtResource("1")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45719, -0.433505, 0)
+mesh = SubResource("3")
+material/0 = ExtResource("1")

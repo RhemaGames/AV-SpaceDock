@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dprs04qv5wcyc"]
+
+[ext_resource type="PackedScene" uid="uid://dl56yhstm03qh" path="res://scenes/Ships/Defender/D-Type/components/UI.tscn" id="1_l7ngf"]
+[ext_resource type="Script" path="res://scenes/Ships/Defender/D-Type/D-Type.gd" id="1_p0mgk"]
+[ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="2_tw22a"]
+[ext_resource type="AudioStream" uid="uid://b3dmajx6clc4b" path="res://scenes/Ships/Defender/D-Type/sfx/zapsplat_sound_design_impact_slam_hit_hard_003_32201.mp3" id="3_vuyuh"]
+[ext_resource type="PackedScene" uid="uid://cyfiw5fiedbt3" path="res://scenes/Ships/Defender/D-Type/components/DDI.tscn" id="4_ob80r"]
+[ext_resource type="PackedScene" uid="uid://caygfg0oh6l8t" path="res://scenes/Ships/build.tscn" id="6_0yu7k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpyq2"]
+size = Vector3(1, 1, 5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wvc6"]
+radius = 2.09786
+height = 4.82178
+
+[node name="ship_defender_D-Type" type="Node3D"]
+script = ExtResource("1_p0mgk")
+
+[node name="UI" parent="." instance=ExtResource("1_l7ngf")]
+visible = false
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("BoxMesh_gpyq2")
+
+[node name="DiscLock" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135796, -4.95149)
+
+[node name="Engines" type="Node3D" parent="."]
+
+[node name="main" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.0178719, 0.140251, 3.28911)
+
+[node name="secondary1" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.4102, 0.102877, 4.83477)
+
+[node name="secondary2" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.49333, 0.0876948, 4.83477)
+
+[node name="booster1" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.980732, 0.52351, 4.80579)
+
+[node name="booster2" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.980732, -0.266535, 4.73596)
+
+[node name="booster3" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.940373, 0.52351, 4.79727)
+
+[node name="booster4" parent="Engines" instance=ExtResource("2_tw22a")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.940373, -0.266535, 4.72126)
+
+[node name="Thrusters" type="Node3D" parent="."]
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vuyuh")
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="DDI" parent="." instance=ExtResource("4_ob80r")]
+
+[node name="Marker" parent="DDI" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+pixel_size = 0.02
+
+[node name="simple_col" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="simple_col"]
+shape = SubResource("CapsuleShape3D_2wvc6")
+
+[node name="Build" parent="." instance=ExtResource("6_0yu7k")]
+
+[connection signal="visibility_changed" from="UI" to="." method="_on_ui_visibility_changed"]
+
+[editable path="DDI"]

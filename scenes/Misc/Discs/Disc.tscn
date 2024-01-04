@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://sq1nt0cnrbyq"]
+
+[ext_resource type="Script" path="res://scenes/Misc/Discs/Disc.gd" id="1_ljb5h"]
+[ext_resource type="PackedScene" uid="uid://d5l4k3p7ld1o" path="res://assets/models/discs/Large.blend" id="3_fp5yj"]
+
+[sub_resource type="PhysicsMaterial" id="7"]
+friction = 0.3
+bounce = 1.0
+
+[sub_resource type="CylinderShape3D" id="6"]
+height = 1.63755
+radius = 6.32533
+
+[node name="Disc" type="RigidBody3D" groups=["Disc"]]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("7")
+gravity_scale = 0.0
+can_sleep = false
+continuous_cd = true
+angular_velocity = Vector3(0, 200, 0)
+script = ExtResource("1_ljb5h")
+
+[node name="Bounds" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0122263, 0)
+shape = SubResource("6")
+
+[node name="Model" parent="." instance=ExtResource("3_fp5yj")]

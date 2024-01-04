@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnypslhy6g2mq"
+path="res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-7e9d1653dd2a9a3acda0bf89eb532c03.mp3str"
+
+[deps]
+
+source_file="res://scenes/Ships/Midfield/UglyDuck/sfx/glitchedtones_Sci-Fi Alert 08.mp3"
+dest_files=["res://.godot/imported/glitchedtones_Sci-Fi Alert 08.mp3-7e9d1653dd2a9a3acda0bf89eb532c03.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

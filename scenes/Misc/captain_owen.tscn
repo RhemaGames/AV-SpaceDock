@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlmaqx3vfe5si"]
+
+[ext_resource type="PackedScene" uid="uid://bprj2aq2tx78h" path="res://assets/models/misc/Captain_Owen.dae" id="1_2h1oa"]
+[ext_resource type="Material" path="res://assets/models/discs/FlatGray.material" id="2_le3nw"]
+[ext_resource type="Material" path="res://assets/models/misc/Computers/White.material" id="3_qto0x"]
+[ext_resource type="Material" path="res://assets/models/misc/White.material" id="4_gk7gp"]
+[ext_resource type="Material" path="res://assets/models/misc/Computers/Bezel_Black.material" id="4_laxag"]
+[ext_resource type="Material" path="res://assets/models/ships/white_medium_gloss.material" id="5_1kram"]
+[ext_resource type="Material" path="res://assets/models/ships/glass_cockpit.material" id="6_jjlst"]
+[ext_resource type="Material" path="res://assets/models/misc/flat_black.material" id="7_t8icu"]
+
+[node name="Captain_Owen" instance=ExtResource("1_2h1oa")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="Benjamin010" parent="." index="0"]
+transform = Transform3D(3.23718, 0, 0, 0, 3.23718, 0, 0, 0, 3.23718, 0.0212606, 16.2031, 0.635017)
+surface_material_override/0 = ExtResource("2_le3nw")
+surface_material_override/1 = ExtResource("3_qto0x")
+surface_material_override/2 = ExtResource("4_gk7gp")
+
+[node name="Benjamin011" parent="." index="1"]
+transform = Transform3D(3.23718, 0, 0, 0, 3.23718, 0, 0, 0, 3.23718, 0.0212606, 16.2031, 0.635017)
+visible = false
+
+[node name="Cube025" parent="." index="2"]
+transform = Transform3D(0.009, 0, 0, 0, 0.00898236, 0.000563145, 0, -0.000563145, 0.00898236, 0, 30.7067, 0.19135)
+visible = false
+surface_material_override/0 = ExtResource("2_le3nw")
+
+[node name="Cube026" parent="." index="3"]
+transform = Transform3D(0.00854662, 0, 0, 0, 0.00852987, 0.000534776, 0, -0.000534776, 0.00852987, 0, 30.636, 0.113794)
+
+[node name="Cube027" parent="." index="4"]
+transform = Transform3D(0.00852543, 0, 0, 0, 0.00850873, 0.00053345, 0, -0.00053345, 0.00850873, 0, 30.6345, 0.0702927)
+
+[node name="Cube028" parent="." index="5"]
+transform = Transform3D(0.00852543, 0, 0, 0, 0.00850873, 0.00053345, 0, -0.00053345, 0.00850873, 0, 30.636, 0.0952848)
+
+[node name="Cube029" parent="." index="6"]
+transform = Transform3D(0.00852543, 0, 0, 0, 0.00850873, 0.00053345, 0, -0.00053345, 0.00850873, 0, 30.636, 0.0952848)
+surface_material_override/0 = ExtResource("3_qto0x")
+
+[node name="Sphere010" parent="." index="7"]
+transform = Transform3D(0.00306893, 6.81439e-19, -6.81439e-19, -7.22742e-19, 0.000192028, -0.00306291, -6.37465e-19, 0.00306291, 0.000192028, -0.00787406, 31.2499, 1.43468)
+
+[node name="Sphere011" parent="." index="8"]
+transform = Transform3D(0.00306893, 6.81439e-19, -6.81439e-19, -7.22742e-19, 0.000192028, -0.00306291, -6.37465e-19, 0.00306291, 0.000192028, -0.00787406, 31.2506, 1.44563)
+
+[node name="helm_game-peice015" parent="." index="9"]
+transform = Transform3D(0.0242753, 0, 0, 0, 0.0242753, 0, 0, 0, 0.0242753, 6.62023, 1.23999, 1.37339)
+surface_material_override/0 = ExtResource("5_1kram")
+surface_material_override/1 = ExtResource("4_laxag")
+surface_material_override/2 = ExtResource("5_1kram")
+
+[node name="helm_game-peice016" parent="." index="10"]
+transform = Transform3D(0.0242753, 0, 0, 0, 0.0242753, 0, 0, 0, 0.0242753, 6.62023, 1.23999, 1.25616)
+surface_material_override/0 = ExtResource("6_jjlst")
+
+[node name="helm_game-peice017" parent="." index="11"]
+transform = Transform3D(0.0242753, 0, 0, 0, 0.0242753, 0, 0, 0, 0.0242753, 6.62023, 1.23999, 1.25616)
+surface_material_override/0 = ExtResource("3_qto0x")
+surface_material_override/1 = ExtResource("4_laxag")
+surface_material_override/2 = ExtResource("7_t8icu")

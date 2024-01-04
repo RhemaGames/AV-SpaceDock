@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw3sk4kj4ivxm"]
+
+[ext_resource type="PackedScene" uid="uid://cglowwju08gxa" path="res://scenes/Ships/Midfield/Catamaran/Catamaran.tscn" id="1_ns2ml"]
+[ext_resource type="PackedScene" uid="uid://b3g805n6xctn3" path="res://scenes/Ships/Striker/S-Type/model/S-Type.blend" id="2_14yeu"]
+[ext_resource type="PackedScene" uid="uid://0rhkw1uh1mep" path="res://scenes/Ships/Defender/D2/D2.tscn" id="3_5242j"]
+[ext_resource type="PackedScene" uid="uid://1d1jrbfebot5" path="res://scenes/Ships/Striker/X1/X1.tscn" id="4_ef8ci"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1018f"]
+
+[sub_resource type="Sky" id="Sky_ajwcx"]
+sky_material = SubResource("ProceduralSkyMaterial_1018f")
+
+[sub_resource type="Environment" id="Environment_hc8mq"]
+background_mode = 2
+sky = SubResource("Sky_ajwcx")
+sky_custom_fov = 49.9
+
+[node name="Template" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hc8mq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.09548)
+keep_aspect = 0
+projection = 1
+current = true
+fov = 37.8493
+size = 30.0
+
+[node name="Ships" type="Node3D" parent="."]
+
+[node name="ship1" type="Marker3D" parent="Ships"]
+transform = Transform3D(-0.943026, 0.035994, 0.330765, -0.0736628, 0.946874, -0.313055, -0.324461, -0.319584, -0.890276, -6.97956, 5.29418, -3.44071)
+
+[node name="ship_midfield_Catamaran" parent="Ships/ship1" instance=ExtResource("1_ns2ml")]
+
+[node name="ship2" type="Marker3D" parent="Ships"]
+transform = Transform3D(-0.866025, 0, -0.5, -0.147312, 0.955613, 0.255152, 0.477807, 0.294624, -0.827585, 9.63968, 0.114439, -6.93849)
+
+[node name="ship_striker_S_Type" parent="Ships/ship2" instance=ExtResource("2_14yeu")]
+
+[node name="ship3" type="Marker3D" parent="Ships"]
+transform = Transform3D(-1, 0, -8.74228e-08, -1.43597e-08, 0.986418, 0.164256, 8.62354e-08, 0.164256, -0.986418, -0.145714, 0.114439, -8.74671)
+
+[node name="ship_defender_D2" parent="Ships/ship3" instance=ExtResource("3_5242j")]
+
+[node name="ship4" type="Marker3D" parent="Ships"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0.049252, 0.981727, 0.183811, -0.25409, 0.190295, -0.948275, -6.79682, -4.68333, -8.74671)
+
+[node name="ship_striker_X1" parent="Ships/ship4" instance=ExtResource("4_ef8ci")]
+
+[node name="Background" type="Node3D" parent="."]

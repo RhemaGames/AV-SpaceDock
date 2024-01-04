@@ -1,0 +1,3 @@
+[submodule "backend/storage"]
+	path = backend/storage
+	url = git@github.com:RhemaGames/godot-storage.git

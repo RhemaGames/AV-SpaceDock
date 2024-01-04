@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ydbawgm1bqsv"]
+
+[ext_resource type="PackedScene" uid="uid://cvrdphfcexpf1" path="res://assets/models/misc/catwalk_steps.glb" id="1"]
+
+[node name="CatWalk_Steps" type="Node3D"]
+
+[node name="catwalk_steps" parent="." instance=ExtResource("1")]

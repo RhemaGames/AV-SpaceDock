@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfvtdelpbs3f3"]
+
+[ext_resource type="Script" path="res://scenes/Misc/engine_exhaust.gd" id="1_x0md5"]
+[ext_resource type="PackedScene" uid="uid://18xgkkll7o8t" path="res://assets/models/engine_exhaust_default.blend" id="2_hiagb"]
+[ext_resource type="AudioStream" uid="uid://hfnj2lwxktpy" path="res://scenes/Ships/Striker/S-Type/sfx/ftveh_02_engine_loop_2x.ogg" id="3_epeos"]
+
+[node name="EngineExhaust" type="Node3D"]
+script = ExtResource("1_x0md5")
+
+[node name="engine_exhaust_default" parent="." instance=ExtResource("2_hiagb")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 0, 0, 0)
+stream = ExtResource("3_epeos")
+volume_db = 2.0
+bus = &"SFX"

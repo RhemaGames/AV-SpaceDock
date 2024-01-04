@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://61up2w0or6dg"]
+
+[ext_resource type="PackedScene" uid="uid://c5jrchtgs73u4" path="res://assets/models/misc/Storage/box.glb" id="1"]
+
+[node name="Box" type="Node3D"]
+
+[node name="box" parent="." instance=ExtResource("1")]

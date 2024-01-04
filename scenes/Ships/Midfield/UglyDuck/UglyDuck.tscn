@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci3bg4u8k0uuc"]
+
+[ext_resource type="Script" path="res://scenes/Ships/Midfield/UglyDuck/UglyDuck.gd" id="1_fu2ug"]
+[ext_resource type="PackedScene" uid="uid://b6l4kdwdhf28" path="res://scenes/Ships/Midfield/UglyDuck/components/UI.tscn" id="2_j4guf"]
+[ext_resource type="PackedScene" uid="uid://u2ismdt3w66p" path="res://scenes/Ships/Midfield/UglyDuck/model/ugly_duck.blend" id="2_sopve"]
+[ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="3_cbafq"]
+[ext_resource type="PackedScene" uid="uid://dk23yjea0x5p4" path="res://scenes/Ships/Midfield/UglyDuck/components/DDI.tscn" id="5_nwtsh"]
+[ext_resource type="PackedScene" uid="uid://caygfg0oh6l8t" path="res://scenes/Ships/build.tscn" id="6_3pluq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcu6j"]
+size = Vector3(2.51598, 2.84998, 6.30775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ny76d"]
+size = Vector3(1, 2.14785, 4.24435)
+
+[node name="ship_midfield_Ugly_Duck" type="Node3D"]
+script = ExtResource("1_fu2ug")
+
+[node name="UI" parent="." instance=ExtResource("2_j4guf")]
+visible = false
+
+[node name="Model" parent="." instance=ExtResource("2_sopve")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="DiscLock" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.58977, 0, -3.48234)
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+
+[node name="simple_col" type="StaticBody3D" parent="." groups=["Ship"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="simple_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371927, 0, -0.421667)
+shape = SubResource("BoxShape3D_bcu6j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="simple_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57522, 0.0511127, -0.765733)
+shape = SubResource("BoxShape3D_ny76d")
+
+[node name="Engines" type="Node3D" parent="."]
+
+[node name="main" parent="Engines" instance=ExtResource("3_cbafq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.512638, -0.00503459, 2.20589)
+
+[node name="main2" parent="Engines" instance=ExtResource("3_cbafq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.543443, -0.00145187, 2.20589)
+
+[node name="Thrusters" type="Node3D" parent="."]
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="DDI" parent="." instance=ExtResource("5_nwtsh")]
+
+[node name="Build" parent="." instance=ExtResource("6_3pluq")]
+
+[connection signal="visibility_changed" from="UI" to="." method="_on_ui_visibility_changed"]

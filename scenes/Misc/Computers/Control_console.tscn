@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8820a1noq7xx"]
+
+[ext_resource type="PackedScene" uid="uid://g7ief55a5vlx" path="res://assets/models/misc/Computers/Control_console.glb" id="1"]
+
+[node name="Control_console" type="Node3D"]
+
+[node name="Control_console" parent="." instance=ExtResource("1")]

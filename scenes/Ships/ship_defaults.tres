@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dowlkab43u34l"]
+
+[ext_resource type="Script" path="res://scenes/Ships/ship_defaults.gd" id="1_beto3"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_beto3")
+ui = ""
+stats = {}
+window_size = Vector2i(0, 0)

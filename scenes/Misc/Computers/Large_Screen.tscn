@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://y2wblaltpvps"]
+
+[ext_resource type="PackedScene" uid="uid://c1wwmtoootk28" path="res://assets/models/misc/Computers/Large_Screen.glb" id="1"]
+
+[node name="Large_Screen" type="Node3D"]
+
+[node name="Large_Screen" parent="." instance=ExtResource("1")]
