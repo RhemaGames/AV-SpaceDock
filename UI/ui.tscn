@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cxc566hbxj2cf" path="res://UI/components/av_menu_button.tscn" id="6_4rmgr"]
 [ext_resource type="StyleBox" uid="uid://25d20hv3573f" path="res://UI/components/av_menu_buttom_internal.stylebox" id="6_opucj"]
 [ext_resource type="StyleBox" uid="uid://dx46vr3n40de5" path="res://UI/components/av_menu_buttom_left.stylebox" id="7_apcpo"]
-[ext_resource type="Texture2D" uid="uid://b0yn3gcaohd45" path="res://addons/Hive_Gaming_Services/icons/hive.svg" id="8_amfnn"]
+[ext_resource type="Texture2D" uid="uid://b0yn3gcaohd45" path="res://bin/icons/hive.svg" id="8_amfnn"]
 [ext_resource type="Texture2D" uid="uid://dkqh8dajtw2xo" path="res://assets/icons/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Arrow_Left_Key_Dark.png" id="8_yaxyy"]
 [ext_resource type="StyleBox" uid="uid://g10x8lwfttbd" path="res://UI/components/av_menu_buttom_right.stylebox" id="9_7puq8"]
 [ext_resource type="Texture2D" uid="uid://ci5b5aeex0lr8" path="res://assets/icons/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Arrow_Right_Key_Dark.png" id="10_ibxt1"]
@@ -20,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_vln4m")
 script = ExtResource("2_hrorm")
 metadata/_edit_use_anchors_ = true
@@ -61,10 +62,11 @@ theme_override_styles/panel = ExtResource("7_apcpo")
 style = 0
 background_color = Color(0.282353, 0.278431, 0.282353, 1)
 foreground_color = Color(1, 1, 1, 1)
-height = 48.0
-grow = 1.297
 Text_not_Texture = true
 text = "Striker"
+height = 48.0
+grow = 1.297
+toggle = true
 
 [node name="MidfieldControl" type="Control" parent="topbar/HBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
@@ -79,10 +81,11 @@ theme_override_styles/panel = ExtResource("6_opucj")
 style = 1
 background_color = Color(0.282353, 0.278431, 0.282353, 1)
 foreground_color = Color(1, 1, 1, 1)
-height = 48.0
-grow = 1.297
 Text_not_Texture = true
 text = "MidField"
+height = 48.0
+grow = 1.297
+toggle = true
 
 [node name="DefenderControl" type="Control" parent="topbar/HBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
@@ -97,10 +100,11 @@ theme_override_styles/panel = ExtResource("9_7puq8")
 style = 2
 background_color = Color(0.283602, 0.280252, 0.281087, 1)
 foreground_color = Color(1, 1, 1, 1)
-height = 48.0
-grow = 1.297
 Text_not_Texture = true
 text = "Defender"
+height = 48.0
+grow = 1.297
+toggle = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="topbar"]
 layout_mode = 1
@@ -126,9 +130,11 @@ background_color = Color(0.184314, 0.184314, 0.184314, 0.141176)
 texture = ExtResource("8_amfnn")
 width = 40.0
 height = 40.0
+toggle = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ShipParts" parent="." instance=ExtResource("4_xtkvk")]
+visible = false
 layout_mode = 1
 anchor_left = 0.998
 anchor_top = 0.111111
@@ -140,6 +146,7 @@ offset_bottom = -0.27179
 metadata/_edit_use_anchors_ = true
 
 [node name="ShipStats" parent="." instance=ExtResource("5_ia4dp")]
+visible = false
 layout_mode = 1
 anchor_right = 0.19
 offset_left = 16.0
@@ -174,6 +181,7 @@ background_color = Color(0.290196, 0.278431, 0.286275, 1)
 foreground_color = Color(1, 1, 1, 1)
 texture = ExtResource("8_yaxyy")
 width = 64.0
+toggle = false
 
 [node name="Label" type="Label" parent="ShipSelect/HBoxContainer"]
 layout_mode = 2
@@ -189,7 +197,11 @@ background_color = Color(0.288879, 0.27738, 0.286202, 1)
 foreground_color = Color(1, 1, 1, 1)
 texture = ExtResource("10_ibxt1")
 width = 64.0
+toggle = false
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="focused" from="topbar/HBoxContainer/StrikerControl/Striker" to="." method="_on_av_button_focused"]
 [connection signal="focused" from="topbar/HBoxContainer/MidfieldControl/Midfield" to="." method="_on_av_button_focused"]
 [connection signal="focused" from="topbar/HBoxContainer/DefenderControl/Defender" to="." method="_on_av_button_focused"]
+[connection signal="focused" from="ShipSelect/HBoxContainer/Prev" to="." method="_on_prev_focused"]
+[connection signal="focused" from="ShipSelect/HBoxContainer/Next" to="." method="_on_next_focused"]

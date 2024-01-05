@@ -48,6 +48,7 @@ texture = ExtResource("3_kdlux")
 width = 64.0
 height = 32.0
 grow = 2.0
+toggle = true
 
 [node name="CockpitControl" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -67,6 +68,7 @@ texture = ExtResource("4_fii11")
 width = 64.0
 height = 32.0
 grow = 2.0
+toggle = true
 
 [node name="PaintControl" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -86,6 +88,7 @@ texture = ExtResource("4_d5l6l")
 width = 64.0
 height = 32.0
 grow = 2.0
+toggle = true
 
 [node name="ThrustControl" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -105,6 +108,7 @@ texture = ExtResource("2_s1o4e")
 width = 64.0
 height = 32.0
 grow = 2.0
+toggle = true
 
 [node name="TextureControl" type="Control" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -121,6 +125,7 @@ texture = ExtResource("7_hk7kg")
 width = 64.0
 height = 32.0
 grow = 2.0
+toggle = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2

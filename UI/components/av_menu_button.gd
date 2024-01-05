@@ -19,6 +19,7 @@ preload("res://UI/components/av_menu_buttom_internal.stylebox"),
 preload("res://UI/components/av_menu_buttom_right.stylebox"),
 preload("res://UI/components/av_menu_button_single.stylebox")]
 
+@export_category("Visuals")
 @export var background_color:Color = Color(1,1,1,1):
 	set(new_Color):
 		background_color = new_Color
@@ -27,23 +28,11 @@ preload("res://UI/components/av_menu_button_single.stylebox")]
 	set(new_Color):
 		foreground_color = new_Color
 		_update_color("foreground")
-		
 @export var texture:Texture2D: 
 	set(new_texture):
 		texture = new_texture
 		_update_texture(texture)
 		
-@export var width:float = 128.0:
-	set(new_width):
-		width = new_width
-		_update_size(width,height)
-@export var height:float = 64.0:
-	set(new_height):
-		height = new_height
-		_update_size(width,height)	
-		
-@export_range(1,2) var grow = 1.0
-
 @export var Text_not_Texture:bool = false:
 	set(tnt):
 		Text_not_Texture = tnt
@@ -58,6 +47,20 @@ preload("res://UI/components/av_menu_button_single.stylebox")]
 		text = new_text
 		if Text_not_Texture == true:
 			$Label.text = text
+
+@export_category("Geometry")
+@export var width:float = 128.0:
+	set(new_width):
+		width = new_width
+		_update_size(width,height)
+@export var height:float = 64.0:
+	set(new_height):
+		height = new_height
+		_update_size(width,height)	
+		
+@export_range(1,2) var grow = 1.0
+
+@export var toggle:bool = true
 
 var focus = false:
 	set(new_focus):
@@ -123,9 +126,12 @@ func _update_size(p_width,p_height):
 
 
 func _on_gui_input(event):
-	if event is InputEventMouseButton:
-		if !self.focus: 
-			focus = true
+	if event is InputEventMouseButton and event.pressed:
+		if toggle:
+			if !self.focus: 
+				focus = true
+				emit_signal("focused",self,focus)
+		else:
 			emit_signal("focused",self,focus)
 
 func _on_parent_has_focus(obj):

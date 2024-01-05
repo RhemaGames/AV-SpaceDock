@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cn4ns7tisb83y"]
+[gd_scene load_steps=23 format=3 uid="uid://cn4ns7tisb83y"]
 
 [ext_resource type="Environment" uid="uid://bpvtudrfn5134" path="res://dock_env.tres" id="1_4ytwy"]
 [ext_resource type="PackedScene" uid="uid://p2ow6r03swtd" path="res://blenderFiles/Dock.blend" id="1_c61po"]
 [ext_resource type="Script" path="res://dock.gd" id="1_get1s"]
 [ext_resource type="LightmapGIData" uid="uid://xpqbb1q2t6yt" path="res://dock.lmbake" id="2_hwb47"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bj7c235py4cgd" path="res://dock-cam.tres" id="2_sykn4"]
-[ext_resource type="PackedScene" uid="uid://i6qoxjdrep41" path="res://scenes/Ships/Striker/LionHead/LionHead.tscn" id="6_7u1ho"]
 [ext_resource type="Texture2D" uid="uid://pginurdajklc" path="res://Reference Images/Space Suits Purple.webp" id="7_e8j2l"]
 [ext_resource type="Texture2D" uid="uid://b356jmfw4bdol" path="res://Reference Images/City in the Distance.jpg" id="8_s0x4b"]
 [ext_resource type="Texture2D" uid="uid://cx11qufqhdpfu" path="res://Reference Images/f5dbb0d2442b6b9c.jpg" id="9_bgu2y"]
@@ -17,11 +16,6 @@ fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7sb6m"]
 noise = SubResource("FastNoiseLite_q06um")
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_brjb7"]
-dof_blur_far_enabled = true
-dof_blur_far_transition = -1.0
-dof_blur_amount = 0.08
 
 [sub_resource type="Animation" id="Animation_1e7cv"]
 resource_name = "Open"
@@ -180,6 +174,11 @@ size = Vector2(4, 3)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vntd5"]
 albedo_texture = ExtResource("9_bgu2y")
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_brjb7"]
+dof_blur_far_enabled = true
+dof_blur_far_transition = -1.0
+dof_blur_amount = 0.08
+
 [node name="Dock" type="Node3D"]
 script = ExtResource("1_get1s")
 
@@ -200,9 +199,14 @@ transform = Transform3D(7.71653e-07, 0, -4.3154, 0, 4.3154, 0, 4.3154, 0, 7.7165
 [node name="hangerDoorBottom" parent="Dock" index="8"]
 transform = Transform3D(7.71653e-07, 0, -4.3154, 0, 4.3154, 0, 4.3154, 0, 7.71653e-07, 2.48627, -0.115345, 0.0665183)
 
+[node name="Cube" parent="Dock" index="9"]
+visibility_range_begin = 0.7
+visibility_range_begin_margin = 10.0
+visibility_range_fade_mode = 1
+
 [node name="Light" parent="Dock/Lights" index="0"]
 transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.055189, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, 3.62323, -7.67426, -0.102318)
-light_energy = 30.0
+light_energy = 6.949
 shadow_enabled = true
 omni_range = 17.0
 
@@ -238,7 +242,7 @@ shadow_enabled = true
 spot_range = 20.0
 
 [node name="Spot_001" parent="Dock/groundSpot" index="0"]
-light_energy = 1.0
+light_energy = 11.343
 shadow_enabled = true
 spot_range = 20.0
 
@@ -250,24 +254,24 @@ spot_range = 20.0
 
 [node name="Spot_003" parent="Dock/groundSpot" index="2"]
 light_color = Color(0.937255, 0.694118, 0.886275, 1)
-light_energy = 1.0
+light_energy = 10.697
 shadow_enabled = true
 spot_range = 20.0
 
 [node name="Spot_004" parent="Dock/groundSpot" index="3"]
 light_color = Color(1, 0.941176, 0.631373, 1)
-light_energy = 1.0
+light_energy = 8.758
 shadow_enabled = true
 spot_range = 20.0
 
 [node name="Spot_005" parent="Dock/groundSpot" index="4"]
-light_energy = 1.0
+light_energy = 10.535
 shadow_enabled = true
 spot_range = 20.0
 
 [node name="Spot_006" parent="Dock/groundSpot" index="5"]
 light_color = Color(0.889377, 0.743254, 1.54018e-06, 1)
-light_energy = 16.0
+light_energy = 10.667
 light_projector = SubResource("NoiseTexture2D_7sb6m")
 shadow_enabled = true
 spot_range = 22.4019
@@ -280,12 +284,6 @@ interior = true
 camera_attributes = ExtResource("2_sykn4")
 light_data = ExtResource("2_hwb47")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.11101, 1.93515, 0)
-attributes = SubResource("CameraAttributesPractical_brjb7")
-current = true
-fov = 65.0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ujvwe")
@@ -293,8 +291,6 @@ libraries = {
 
 [node name="Ship" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48985, -3.30683, 0)
-
-[node name="ship_striker_LionHead" parent="Ship" instance=ExtResource("6_7u1ho")]
 
 [node name="Art" type="Node3D" parent="."]
 
@@ -318,6 +314,16 @@ transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08
 mesh = SubResource("PlaneMesh_arf2m")
 surface_material_override/0 = SubResource("StandardMaterial3D_vntd5")
 
+[node name="Pivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36995, 0, 0.0677109)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.48096, 1.93515, -0.0677109)
+attributes = SubResource("CameraAttributesPractical_brjb7")
+current = true
+fov = 65.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="Dock"]

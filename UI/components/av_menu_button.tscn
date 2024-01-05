@@ -36,6 +36,7 @@ script = ExtResource("2_wimcv")
 style = 3
 background_color = Color(0, 0.466667, 0.627451, 1)
 foreground_color = Color(0.756863, 0.0862745, 0.298039, 1)
+toggle = null
 
 [node name="Paint" type="TextureRect" parent="."]
 self_modulate = Color(0.756863, 0.0862745, 0.298039, 1)
