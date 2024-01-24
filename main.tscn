@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://btc1vmspfsajb"]
+[gd_scene load_steps=6 format=3 uid="uid://btc1vmspfsajb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ltdxr"]
 [ext_resource type="PackedScene" uid="uid://cn4ns7tisb83y" path="res://dock.tscn" id="1_pxn5b"]
 [ext_resource type="PackedScene" uid="uid://dxiag8lkrj38v" path="res://UI/player_info.tscn" id="2_ca6ij"]
 [ext_resource type="PackedScene" uid="uid://b75a376t4jmn6" path="res://UI/ui.tscn" id="3_jfx65"]
+[ext_resource type="AudioStream" uid="uid://c5apg8ctvc31u" path="res://assets/music/My_light__-_electron7.mp3" id="5_yjcci"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ltdxr")
@@ -16,5 +17,10 @@ visible = false
 
 [node name="UI" parent="." instance=ExtResource("3_jfx65")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yjcci")
+autoplay = true
+bus = &"BGM"
 
 [connection signal="changed_ship_type" from="." to="." method="_on_changed_ship_type"]

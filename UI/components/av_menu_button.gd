@@ -62,7 +62,8 @@ preload("res://UI/components/av_menu_button_single.stylebox")]
 
 @export var toggle:bool = true
 
-var focus = false:
+
+@export var focus = false:
 	set(new_focus):
 		focus = new_focus
 		_update_focus(focus)
@@ -75,8 +76,10 @@ func _ready():
 	_update_size(width,height)
 	_update_color("background")
 	_update_color("foreground")
-	
-	original_size = Vector2(width,height)
+	if !original_size and focus:
+		original_size = Vector2(width /2 ,height /2)
+	else:
+		original_size = Vector2(width,height)
 	original_bg_color = background_color
 	original_fg_color = foreground_color
 	original_texture = texture

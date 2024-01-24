@@ -19,6 +19,7 @@ var current_ship_index = 0:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 
 
@@ -48,6 +49,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_visibility_changed():
 	Mistro.main.connect("changed_ship_type",Callable(self,"_on_ship_type_changed"))
+	Mistro.main.connect("changed_ship_opt",Callable(self,"_on_ship_opt_changed"))
 
 func _on_ship_type_changed(type):
 	print_debug("Ship type Changed")
@@ -81,9 +83,9 @@ func load_ship(ship):
 	#	for c in $Ship.get_children():
 	#		$Ship.remove_child(c)
 	#		c.queue_free()
-			
+	ship["stats"] = the_ship.stats
 	$Ship.add_child(the_ship)
-	
+	Mistro.main.emit_signal("changed_ship",ship)
 	open_docking_bay()				
 
 func _unhandled_input(event):
@@ -94,4 +96,58 @@ func _unhandled_input(event):
 	#		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		if event is InputEventMouseMotion and event.button_mask == 1:
 			$Pivot.rotation.y -= event.relative.x * 0.01 
+			
 			$Pivot.rotation.z -= event.relative.y * 0.01
+			$Pivot.rotation.z = clampf($Pivot.rotation.z,-1.5,0.19)
+
+func _on_ship_opt_changed(type,data):
+	var ship = $Ship.get_child(0).get_node("Model")
+	var opts_to_change
+	var materials = {}
+	var primary_color
+	var secondary_color
+	var accent_color
+	
+	match(type):
+		"paint":
+			for c in ship.get_children():
+				for s in c.mesh.get_surface_count():
+					var mat = c.mesh.surface_get_material(s)
+					if !mat.resource_name in materials.keys():
+						materials[mat.resource_name] = {}
+					if !c in materials[mat.resource_name].keys():
+						materials[mat.resource_name][c] = []
+					materials[mat.resource_name][c].append(s)
+					
+			for m in materials.keys():
+				#print(m,"= ",materials[m].size())
+				match(m):
+					"primary_color":
+						primary_color = materials[m]
+					"secondary_color":
+						secondary_color = materials[m]
+					"accent_color":
+						accent_color = materials[m]
+					_:
+						pass
+						
+			## Setting primaty color
+			print(primary_color)
+			if primary_color:
+				for _obj in primary_color.keys():
+					var _surface = primary_color[_obj]
+					_obj.mesh.surface_get_material(_surface[0]).set_albedo(data[0])
+					
+			## Setting Secondary color
+			if secondary_color:
+				for _obj in secondary_color.keys():
+					var _surface = secondary_color[_obj]
+					_obj.mesh.surface_get_material(_surface[0]).set_albedo(data[1])
+			
+			## Setting accent color
+			if accent_color:
+				for _obj in accent_color.keys():
+					var _surface = accent_color[_obj]
+					_obj.mesh.surface_get_material(_surface[0]).set_albedo(data[2])
+				
+					

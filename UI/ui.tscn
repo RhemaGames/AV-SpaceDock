@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b75a376t4jmn6"]
 
+[ext_resource type="Theme" uid="uid://iludqi6aa0d6" path="res://bay.theme" id="1_oxn8l"]
 [ext_resource type="Texture2D" uid="uid://cou6qttpvqain" path="res://Icon.svg" id="1_uwmyu"]
-[ext_resource type="Theme" uid="uid://dphp4272qe781" path="res://bay.tres" id="1_vln4m"]
 [ext_resource type="Script" path="res://UI/ui.gd" id="2_hrorm"]
 [ext_resource type="PackedScene" uid="uid://dpdqrariywxsy" path="res://UI/ship_parts.tscn" id="4_xtkvk"]
 [ext_resource type="PackedScene" uid="uid://dv3w0ai6xm7h1" path="res://UI/ship_stats.tscn" id="5_ia4dp"]
@@ -21,31 +21,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_vln4m")
+theme = ExtResource("1_oxn8l")
 script = ExtResource("2_hrorm")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="topbar" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 52.0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = 35.0
 grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="topbar"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 71.0
-offset_bottom = 20.0
-grow_vertical = 2
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 463.0
+offset_bottom = 71.0
 alignment = 1
+metadata/_edit_group_ = true
 
 [node name="Icon" type="TextureRect" parent="topbar/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("1_uwmyu")
+stretch_mode = 5
+
+[node name="Icon2" type="TextureRect" parent="topbar/HBoxContainer/Icon"]
+self_modulate = Color(0.289791, 0.232041, 0, 0.756863)
+show_behind_parent = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.41
+offset_top = 1.26
+offset_right = 4.41
+offset_bottom = 5.26
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_uwmyu")
 stretch_mode = 5
 
@@ -66,7 +85,6 @@ Text_not_Texture = true
 text = "Striker"
 height = 48.0
 grow = 1.297
-toggle = true
 
 [node name="MidfieldControl" type="Control" parent="topbar/HBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
@@ -85,7 +103,6 @@ Text_not_Texture = true
 text = "MidField"
 height = 48.0
 grow = 1.297
-toggle = true
 
 [node name="DefenderControl" type="Control" parent="topbar/HBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
@@ -104,7 +121,6 @@ Text_not_Texture = true
 text = "Defender"
 height = 48.0
 grow = 1.297
-toggle = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="topbar"]
 layout_mode = 1
@@ -130,20 +146,14 @@ background_color = Color(0.184314, 0.184314, 0.184314, 0.141176)
 texture = ExtResource("8_amfnn")
 width = 40.0
 height = 40.0
-toggle = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ShipParts" parent="." instance=ExtResource("4_xtkvk")]
-visible = false
 layout_mode = 1
-anchor_left = 0.998
-anchor_top = 0.111111
-anchor_right = 0.998264
-anchor_bottom = 0.914
-offset_left = -352.696
-offset_top = 0.0
-offset_bottom = -0.27179
-metadata/_edit_use_anchors_ = true
+offset_left = -4.0
+offset_top = 37.0
+offset_right = 416.0
+offset_bottom = -4.0
 
 [node name="ShipStats" parent="." instance=ExtResource("5_ia4dp")]
 visible = false
@@ -200,8 +210,11 @@ width = 64.0
 toggle = false
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="." to="ShipStats" method="_on_ui_visibility_changed"]
 [connection signal="focused" from="topbar/HBoxContainer/StrikerControl/Striker" to="." method="_on_av_button_focused"]
 [connection signal="focused" from="topbar/HBoxContainer/MidfieldControl/Midfield" to="." method="_on_av_button_focused"]
 [connection signal="focused" from="topbar/HBoxContainer/DefenderControl/Defender" to="." method="_on_av_button_focused"]
+[connection signal="endBuild" from="ShipParts" to="." method="_on_ship_parts_end_build"]
+[connection signal="startBuild" from="ShipParts" to="." method="_on_ship_parts_start_build"]
 [connection signal="focused" from="ShipSelect/HBoxContainer/Prev" to="." method="_on_prev_focused"]
 [connection signal="focused" from="ShipSelect/HBoxContainer/Next" to="." method="_on_next_focused"]

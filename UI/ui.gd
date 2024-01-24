@@ -15,7 +15,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	
 	pass # Replace with function body.
 
 
@@ -55,3 +54,17 @@ func _on_ship_type_changed(type):
 		if !c is TextureRect:
 			if type == c.get_child(0).name:
 				c.get_child(0).focus = true
+
+
+func _on_ship_parts_start_build():
+	var tween = get_tree().create_tween()
+	var end_location = $ShipParts.position.x-$ShipParts.size.x
+	tween.tween_property($ShipParts,"position",Vector2(end_location,$ShipParts.position.y),0.4)
+	pass
+
+
+func _on_ship_parts_end_build():
+	var tween = get_tree().create_tween()
+	var end_location = $ShipParts.position.x+$ShipParts.size.x
+	tween.tween_property($ShipParts,"position",Vector2(end_location,$ShipParts.position.y),0.4)
+	pass

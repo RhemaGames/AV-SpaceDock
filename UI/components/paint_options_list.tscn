@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmhjt7ynap1t"]
+
+[ext_resource type="Script" path="res://UI/components/paint_options_list.gd" id="1_nafx4"]
+[ext_resource type="PackedScene" uid="uid://by00wkgtybj2k" path="res://UI/components/paint_option.tscn" id="1_qagcr"]
+
+[node name="PaintOptions" type="HFlowContainer"]
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+script = ExtResource("1_nafx4")
+
+[node name="PaintOption" parent="." instance=ExtResource("1_qagcr")]
+layout_mode = 2
+main = Color(0.254902, 0.611765, 0, 1)
+secondary = Color(1, 1, 1, 1)
+accent = Color(0.901961, 0.788235, 0, 1)
+
+[node name="PaintOption2" parent="." instance=ExtResource("1_qagcr")]
+layout_mode = 2
+main = Color(0.0313726, 0.0313726, 0.0313726, 1)
+secondary = Color(1, 1, 1, 1)
+accent = Color(0.901961, 0.788235, 0, 1)
+
+[node name="PaintOption3" parent="." instance=ExtResource("1_qagcr")]
+layout_mode = 2
+main = Color(0.701961, 0, 0.207843, 1)
+accent = Color(0.541176, 0.576471, 0.584314, 1)
+
+[node name="PaintOption4" parent="." instance=ExtResource("1_qagcr")]
+layout_mode = 2
+main = Color(0.772549, 0.647059, 0, 1)
+secondary = Color(0.223529, 0.4, 0.25098, 1)
+accent = Color(0.2, 0.168627, 0, 1)

@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://dv3w0ai6xm7h1"]
+[gd_scene load_steps=4 format=3 uid="uid://dv3w0ai6xm7h1"]
+
+[ext_resource type="Script" path="res://UI/ship_stats.gd" id="1_f8fd6"]
+[ext_resource type="FontFile" uid="uid://4awcdr2qad03" path="res://Fonts/Alive in Science Fiction-THIN.ttf" id="2_1ysar"]
+[ext_resource type="PackedScene" uid="uid://db85it2awhheo" path="res://UI/components/stat_display.tscn" id="3_c3j8v"]
 
 [node name="ShipStats" type="PanelContainer"]
 anchors_preset = -1
@@ -9,31 +13,38 @@ offset_top = 0.183998
 offset_right = 242.0
 offset_bottom = -0.119995
 grow_vertical = 2
+script = ExtResource("1_f8fd6")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Ship Name"
+
+[node name="Class" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_fonts/font = ExtResource("2_1ysar")
+theme_override_font_sizes/font_size = 12
+text = "Ship Name"
+horizontal_alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Hull" parent="VBoxContainer" instance=ExtResource("3_c3j8v")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Stat"
-
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="Speed" parent="VBoxContainer" instance=ExtResource("3_c3j8v")]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
+[node name="Accel" parent="VBoxContainer" instance=ExtResource("3_c3j8v")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 50.0
-show_percentage = false
+
+[node name="Turn" parent="VBoxContainer" instance=ExtResource("3_c3j8v")]
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

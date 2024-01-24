@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="254"
+   viewBox="0 0 135.46666 67.204168"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="hor_edge.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.096075"
+     inkscape:cx="251.80759"
+     inkscape:cy="348.5163"
+     inkscape:window-width="1844"
+     inkscape:window-height="1011"
+     inkscape:window-x="76"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;fill-opacity:0.98413599;stroke:none;stroke-width:3.44824;stroke-opacity:1"
+       d="m 438.40225,207.43731 -15.4368,-62.37425 H 248.08649 73.207534 l -15.384868,61.58338 c -8.461684,33.87085 -15.798517,61.59297 -16.304067,61.60471 -0.833109,0.0193 -89.978723,-26.51062 -90.588551,-26.95938 -0.256984,-0.18912 32.710694,-132.90838 33.154529,-133.47148 0.126908,-0.16101 3.100144,0.5618 6.6071916,1.60624 l 6.3764485,1.89899 253.1249329,-0.0144 c 230.08936,-0.0131 253.51658,-0.14785 257.42848,-1.48077 2.36694,-0.8065 4.43495,-1.31755 4.59557,-1.13566 0.39015,0.44182 33.33376,133.42777 33.09568,133.59984 -0.17145,0.12391 -83.95399,25.35657 -89.16634,26.8541 l -2.30748,0.66294 z"
+       id="path6202"
+       transform="scale(0.26458333)" />
+  </g>
+</svg>
