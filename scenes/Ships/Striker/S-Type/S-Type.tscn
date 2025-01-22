@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://beqolhxj520hx"]
 
-[ext_resource type="Script" path="res://scenes/Ships/Striker/S-Type/ship_striker_S-Type.gd" id="1_0nnba"]
-[ext_resource type="Shader" path="res://assets/shaders/force_field.gdshader" id="3_etoes"]
+[ext_resource type="Script" uid="uid://klbiudd861fr" path="res://scenes/Ships/Striker/S-Type/ship_striker_S-Type.gd" id="1_0nnba"]
+[ext_resource type="Shader" uid="uid://dshqx83haa8y1" path="res://assets/shaders/force_field.gdshader" id="3_etoes"]
 [ext_resource type="PackedScene" uid="uid://b3g805n6xctn3" path="res://scenes/Ships/Striker/S-Type/model/S-Type.blend" id="3_x0o71"]
 [ext_resource type="AudioStream" uid="uid://6glkiadgwfqy" path="res://scenes/Ships/Striker/S-Type/sfx/zapsplat_sound_design_impact_slam_hit_hard_003_32201.mp3" id="4_7g0jo"]
 [ext_resource type="PackedScene" uid="uid://dfvtdelpbs3f3" path="res://scenes/Misc/engine_exhaust.tscn" id="5_gnwut"]

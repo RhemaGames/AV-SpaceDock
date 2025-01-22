@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg40a5ub67s4q"]
 
-[ext_resource type="Script" path="res://UI/components/color_select.gd" id="1_mn3eo"]
+[ext_resource type="Script" uid="uid://2s5qc62oxtj0" path="res://UI/components/color_select.gd" id="1_mn3eo"]
 
 [node name="Color_Select" type="HBoxContainer"]
 script = ExtResource("1_mn3eo")

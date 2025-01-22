@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://iludqi6aa0d6" path="res://bay.theme" id="1_oxn8l"]
 [ext_resource type="Texture2D" uid="uid://cou6qttpvqain" path="res://Icon.svg" id="1_uwmyu"]
-[ext_resource type="Script" path="res://UI/ui.gd" id="2_hrorm"]
+[ext_resource type="Script" uid="uid://bj0jtpdg85vxw" path="res://UI/ui.gd" id="2_hrorm"]
 [ext_resource type="PackedScene" uid="uid://dpdqrariywxsy" path="res://UI/ship_parts.tscn" id="4_xtkvk"]
 [ext_resource type="PackedScene" uid="uid://dv3w0ai6xm7h1" path="res://UI/ship_stats.tscn" id="5_ia4dp"]
 [ext_resource type="PackedScene" uid="uid://cxc566hbxj2cf" path="res://UI/components/av_menu_button.tscn" id="6_4rmgr"]

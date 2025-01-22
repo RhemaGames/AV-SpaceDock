@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dpdqrariywxsy"]
 
-[ext_resource type="Script" path="res://UI/ship_parts.gd" id="1_mrefq"]
+[ext_resource type="Script" uid="uid://j68tnntehabc" path="res://UI/ship_parts.gd" id="1_mrefq"]
 [ext_resource type="Texture2D" uid="uid://dooi4uwlm3cbd" path="res://UI/delapouite/rocket-thruster.svg" id="2_s1o4e"]
 [ext_resource type="PackedScene" uid="uid://cxc566hbxj2cf" path="res://UI/components/av_menu_button.tscn" id="3_drvih"]
 [ext_resource type="Texture2D" uid="uid://l5uvmee0edj6" path="res://UI/base.png" id="3_kdlux"]
@@ -34,9 +34,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = -194.0
+offset_top = -210.0
 offset_right = 54.0
-offset_bottom = -162.0
+offset_bottom = -178.0
 grow_vertical = 2
 rotation = -1.5708
 pivot_offset = Vector2(64, 32)

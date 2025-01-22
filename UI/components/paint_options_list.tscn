@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsmhjt7ynap1t"]
 
-[ext_resource type="Script" path="res://UI/components/paint_options_list.gd" id="1_nafx4"]
+[ext_resource type="Script" uid="uid://c12ikle2l7t2d" path="res://UI/components/paint_options_list.gd" id="1_nafx4"]
 [ext_resource type="PackedScene" uid="uid://by00wkgtybj2k" path="res://UI/components/paint_option.tscn" id="1_qagcr"]
 [ext_resource type="PackedScene" uid="uid://d3tanepjfx6hn" path="res://UI/components/color_selector.tscn" id="3_mherd"]
 
