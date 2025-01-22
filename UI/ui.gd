@@ -58,13 +58,17 @@ func _on_ship_type_changed(type):
 
 func _on_ship_parts_start_build():
 	var tween = get_tree().create_tween()
-	var end_location = $ShipParts.position.x-$ShipParts.size.x
-	tween.tween_property($ShipParts,"position",Vector2(end_location,$ShipParts.position.y),0.4)
+	var new_end_location = $ShipParts.position.x-$ShipParts.size.x
+	var ship_select_location = $ShipSelect.position.y+$ShipSelect.size.y
+	tween.tween_property($ShipParts,"position",Vector2(new_end_location,$ShipParts.position.y),0.4)
+	tween.tween_property($ShipSelect,"position",Vector2($ShipSelect.position.x,ship_select_location),0.4)
 	pass
 
 
 func _on_ship_parts_end_build():
 	var tween = get_tree().create_tween()
-	var end_location = $ShipParts.position.x+$ShipParts.size.x
-	tween.tween_property($ShipParts,"position",Vector2(end_location,$ShipParts.position.y),0.4)
+	var new_end_location = $ShipParts.position.x+$ShipParts.size.x
+	var ship_select_location = $ShipSelect.position.y-$ShipSelect.size.y
+	tween.tween_property($ShipParts,"position",Vector2(new_end_location,$ShipParts.position.y),0.4)
+	tween.tween_property($ShipSelect,"position",Vector2($ShipSelect.position.x,ship_select_location),0.4)
 	pass

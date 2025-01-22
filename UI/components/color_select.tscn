@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg40a5ub67s4q"]
+
+[ext_resource type="Script" path="res://UI/components/color_select.gd" id="1_mn3eo"]
+
+[node name="Color_Select" type="HBoxContainer"]
+script = ExtResource("1_mn3eo")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 2
+text = "R
+
+"
+
+[node name="Color_Select" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Color_Select"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Color_Select"]
+layout_mode = 2
+max_value = 255.0
+
+[connection signal="value_changed" from="Color_Select/HSlider" to="." method="_on_h_slider_value_changed"]

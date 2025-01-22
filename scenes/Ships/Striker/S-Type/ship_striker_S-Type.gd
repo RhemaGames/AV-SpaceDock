@@ -19,7 +19,7 @@ func _ready():
 	ship.ui = $UI
 
 	ship.stats = stats
-	ship.thruster = thruster_burst
+	ship.thruster = thruster_burst.instantiate()
 	ship.targetMarker = target
 	#ship.damage = $Damage
 	

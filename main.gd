@@ -33,4 +33,3 @@ func _process(delta):
 func _on_changed_ship_type(type):
 	print("Main Sees change to. ",type)
 	
-
