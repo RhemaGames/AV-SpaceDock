@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3tanepjfx6hn"]
 
 [ext_resource type="PackedScene" uid="uid://bg40a5ub67s4q" path="res://UI/components/color_select.tscn" id="1_avy6c"]
-[ext_resource type="Script" path="res://UI/components/color_selector.gd" id="1_nno4d"]
+[ext_resource type="Script" uid="uid://cgtxbn7na68gh" path="res://UI/components/color_selector.gd" id="1_nno4d"]
 
 [node name="ColorSelector" type="PanelContainer"]
 clip_contents = true
